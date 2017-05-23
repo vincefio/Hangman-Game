@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hangman</title>
+
+	<link rel="stylesheet" href="assets/css/style.css">
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<h1 id="title">Hangman</h1>
+		<h2 id="subtitle">HORROR FILM EDITION</h2>
+
+		<div class="row">
+			<div class="col-xs-3 outer">
+			</div>
+			<div class="col-xs-3 inner">
+			</div>
+			<div class="col-xs-3 inner">
+				<h3 class="score-text">PRESS ANY KEY TO GET STARTED!</h3>
+				<h3 class="score-text">WINS</h3>
+				<p class="score-text" id="numWins">0</p>
+				<h3 class="score-text">CURRENT WORD</h3>
+				<p class="score-text" id="currentWord"></p>
+				<h3 class="score-text"># OF GUESSES REMAINING</h3>
+				<p class="score-text" id="numGuesses"></p>
+				<h3 class="score-text">LETTERS ALREADY GUESSED</h3>
+				<p class="lettersGuessed score-text"></p>
+			</div>
+			<div class="col-xs-3 outer">
+			</div>
+		</div>
+
+	</div>
+
+	<script>
+	//array of all films
+	var films = ['night of the living dead', 'the silence of the lambs', 'halloween', 'dracula', 'the exorcist', 'the conjuring', 'scream', 'dawn of the dead', 'the shining'];
+
+	//set variables for score-keeping
+	var wins = 0;
+	var randomNum = Math.floor(Math.random()*9);
+	var randomFilm = films[randomNum];
+
+	console.log(randomFilm);
+
+	//start game when any key is pressed
+	alert("Press Any Key to Get Started!");
+	document.onkeyup = function(event){
+
+		var letterSpaces = '';
+		for(var i = 0; i < randomFilm.length; i++){
+			console.log('_ ')
+			
+			letterSpaces += '_ ';
+		// 	if(randomFilm.charAt(i) === ' '){
+		// 	document.write('       ');
+		// 	console.log('found space');
+		// } else{
+		// 	document.write('_ ');
+		// }
+		}
+
+		var wordSpaces = document.getElementById('currentWord');
+		wordSpaces.innerHTML = letterSpaces;
+		//when user types letter, we display correct letters, number of guesses remaining -1, place letter already guessed on bottom
+		
+
+	};
+	
+	//on the guess, see if any letters match, lower guess remaining by 1, put letter already guessed on bottom
+
+
+	</script>
+	<script
+  	src="http://code.jquery.com/jquery-3.2.1.min.js"
+  	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  	crossorigin="anonymous"></script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	
+</body>
+</html>
