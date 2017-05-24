@@ -52,63 +52,11 @@
 	
 	var guessSpace = [];
 
-	//console.log(randomFilm);
 
-	//start game when any key is pressed
 	alert("Press Ok to Get Started!");
-	// document.onkeyup = function(event){
-
-		
-
-	function gameRestart(){
-
-		randomNum = Math.floor(Math.random()*9);
-	    randomFilm= films[randomNum];
-	    console.log(randomFilm);
-
-	    var letterSpaces = '';
-	    guessSpace = [];
-		//create an array with all of the film letters
-		for(var i = 0; i < randomFilm.length; i++){
-			
-			if(randomFilm.charAt(i) === ' '){
-				letterSpaces += "&nbsp; &nbsp;";
-				guessSpace.push(" ");
-			}else{
-				letterSpaces += '_ ';
-				guessSpace.push("_");
-			}
-
-		}
-
-		winsStart++;
-
-		guessRemaining = 15;
-
-		//var guessedLetter = [];
-		guessLetterArray.length = 0;
-		guessedLetter = document.getElementById('plettersGuessed');
-		guessedLetter.innerHTML = guessLetterArray;
-		//below variables set up starting numbers
-		var wordSpaces = document.getElementById('currentWord');
-		wordSpaces.innerHTML = letterSpaces;
-
-		var wins = document.getElementById('numWins');
-		wins.innerHTML = winsStart;
-
-		var guessLeft = document.getElementById('numGuesses');
-		guessLeft.innerHTML = guessRemaining;
-
-	}
+	
 
 	gameRestart();
-
-			//function gameReset(){
-		
-	//}
-
-	//	gameReset();
-
 		
 		document.onkeyup = function(event){
 
@@ -156,8 +104,50 @@
 		};
 
 
-	// };
+	
 	//function to reset game
+
+	function gameRestart(){
+
+		randomNum = Math.floor(Math.random()*9);
+	    randomFilm= films[randomNum];
+	    console.log(randomFilm);
+
+	    var letterSpaces = '';
+	    guessSpace = [];
+		//create an array with all of the film letters
+		for(var i = 0; i < randomFilm.length; i++){
+			
+			if(randomFilm.charAt(i) === ' '){
+				letterSpaces += "&nbsp; &nbsp;";
+				guessSpace.push(" ");
+			}else{
+				letterSpaces += '_ ';
+				guessSpace.push("_");
+			}
+
+		}
+
+		winsStart++;
+
+		guessRemaining = 15;
+
+		//var guessedLetter = [];
+		guessLetterArray.length = 0;
+		guessedLetter = document.getElementById('plettersGuessed');
+		guessedLetter.innerHTML = guessLetterArray;
+		//below variables set up starting numbers
+		var wordSpaces = document.getElementById('currentWord');
+		wordSpaces.innerHTML = letterSpaces;
+
+		var wins = document.getElementById('numWins');
+		wins.innerHTML = winsStart;
+
+		var guessLeft = document.getElementById('numGuesses');
+		guessLeft.innerHTML = guessRemaining;
+
+	}
+
 
 
 	function updateCurrentWord(){
