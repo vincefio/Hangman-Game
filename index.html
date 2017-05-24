@@ -46,31 +46,31 @@
 	//set variables for score-keeping
 	var guessLetterArray = [];
 	var winsStart = -1;
-	var randomNum = Math.floor(Math.random()*9);
-	var randomFilm= films[randomNum];
+	var randomNum;
+	var randomFilm;
 	var guessRemaining = 15;
 	
 	var guessSpace = [];
 
-	console.log(randomFilm);
-
-//what happens when game resets
-	//generate new movie
-	randomNum = Math.floor(Math.random()*9);
-	randomFilm= films[randomNum];
-	console.log(randomFilm);
-
+	//console.log(randomFilm);
 
 	//start game when any key is pressed
 	alert("Press Ok to Get Started!");
 	// document.onkeyup = function(event){
 
-		var letterSpaces = '';
+		
 
+	function gameRestart(){
 
+		randomNum = Math.floor(Math.random()*9);
+	    randomFilm= films[randomNum];
+	    console.log(randomFilm);
+
+	    var letterSpaces = '';
+	    guessSpace = [];
 		//create an array with all of the film letters
 		for(var i = 0; i < randomFilm.length; i++){
-			//below code doesn't add spaces into movie title like i wanted it to
+			
 			if(randomFilm.charAt(i) === ' '){
 				letterSpaces += "&nbsp; &nbsp;";
 				guessSpace.push(" ");
@@ -79,10 +79,35 @@
 				guessSpace.push("_");
 			}
 
-			
 		}
 
-		gameReset();
+		winsStart++;
+
+		guessRemaining = 15;
+
+		//var guessedLetter = [];
+		guessLetterArray.length = 0;
+		guessedLetter = document.getElementById('plettersGuessed');
+		guessedLetter.innerHTML = guessLetterArray;
+		//below variables set up starting numbers
+		var wordSpaces = document.getElementById('currentWord');
+		wordSpaces.innerHTML = letterSpaces;
+
+		var wins = document.getElementById('numWins');
+		wins.innerHTML = winsStart;
+
+		var guessLeft = document.getElementById('numGuesses');
+		guessLeft.innerHTML = guessRemaining;
+
+	}
+
+	gameRestart();
+
+			//function gameReset(){
+		
+	//}
+
+	//	gameReset();
 
 		
 		document.onkeyup = function(event){
@@ -99,7 +124,7 @@
 			letterSpaces = updateCurrentWord();
 
 			//place already guessed letters into their p tag, don't allow them to be guessed again, make alerts for wins and losse
-			guessLetterArray.push(event.key)
+			guessLetterArray.push(event.key);
 			var guessedLetter = document.getElementById('plettersGuessed');
 			guessedLetter.innerHTML = guessLetterArray;
 
@@ -119,7 +144,8 @@
 				//use the indexOf property to check the letterSpaces keyword for _
 			if(letterSpaces.indexOf('_ ') < 0){
 				console.log('You won');
-				
+				//guessLetterArray.length = 0;
+				gameRestart();
 			}
 
 			//set an if statement for a loss
@@ -132,22 +158,10 @@
 
 	// };
 	//function to reset game
-	function gameReset(){
-		winsStart++;
-		//below variables set up starting numbers
-		var wordSpaces = document.getElementById('currentWord');
-		wordSpaces.innerHTML = letterSpaces;
 
-		var wins = document.getElementById('numWins');
-		wins.innerHTML = winsStart;
-
-		var guessLeft = document.getElementById('numGuesses');
-		guessLeft.innerHTML = guessRemaining;
-
-	}
 
 	function updateCurrentWord(){
-		var letterSpaces = "";
+		letterSpaces = "";
 
 		for(var i = 0; i < guessSpace.length; i++){
 			//below code doesn't add spaces into movie title like i wanted it to
