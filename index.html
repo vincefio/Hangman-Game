@@ -94,10 +94,12 @@
 				console.log('You won');
 				//guessLetterArray.length = 0;
 				gameRestart();
+
 			}
 
 			//set an if statement for a loss
 			if(guessRemaining === 0 && letterSpaces.indexOf('_ ') >= 0){
+				//document.getElementById("noose").addClass('nooseend');
 				console.log('You Lose');
 			}
 

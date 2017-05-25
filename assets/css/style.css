@@ -48,6 +48,11 @@ h3{
 }
 
 #noose{
+	
+	display: none;
+}
+
+.nooseend{
 	animation: fadein 4s;
 	width: 100%;
 }
