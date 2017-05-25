@@ -91,7 +91,7 @@
 
 				//use the indexOf property to check the letterSpaces keyword for _
 			if(letterSpaces.indexOf('_ ') < 0){
-				console.log('You won');
+				alert('You won!');
 				//guessLetterArray.length = 0;
 				gameRestart();
 
@@ -100,7 +100,7 @@
 			//set an if statement for a loss
 			if(guessRemaining === 0 && letterSpaces.indexOf('_ ') >= 0){
 				//document.getElementById("noose").addClass('nooseend');
-				console.log('You Lose');
+				alert('You Lose.  Refresh the page to start again');
 			}
 
 		};
@@ -186,3 +186,8 @@
 	
 </body>
 </html>
+
+<!-- Some things i'd like to improve upon
+	-input validator, if you click any keyboard input don't display it unless its a letter
+
+ -->
